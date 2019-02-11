@@ -46,11 +46,11 @@
                 </tr>
                 <tr>
                     <td>Name: </td>
-                    <td><input type="text" name="name">
+                    <td><input type="text" name="name" autocomplete="on" required>
                 </tr>
                  <tr>
                     <td>Password: </td>
-                    <td><input type="password" name="password">
+                    <td><input type="password" name="password" autocomplete="on" required>
                 </tr>
                 <tr>
                     <td><input type="submit" name="submit" value="login"></td>

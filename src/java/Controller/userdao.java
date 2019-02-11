@@ -20,7 +20,7 @@ public class userdao {
         String password = x.getPassword();  
                   
        
-        String query = "SELECT * FROM users WHERE name=?";
+        String query = "SELECT * FROM users WHERE name=? ";
         //insert into users (name,email,pass,location) Values (?,?,?)
          
         
@@ -53,6 +53,7 @@ public class userdao {
                    
                     if(dbpass.equals(password) && dbname.equals(name)){
                          x.setValid(true);
+                         
                     }else{
                          x.setValid(false);
                     }

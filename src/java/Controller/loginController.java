@@ -41,17 +41,25 @@ public class loginController extends HttpServlet {
             try {
                 userdao.login(lBean);
                 if(lBean.isValid()){
-                      RequestDispatcher rd=request.getRequestDispatcher("home.jsp");
+                      RequestDispatcher rd=request.getRequestDispatcher("seller.jsp");
                        rd.include(request,response);
+                       response.sendRedirect("seller.jsp");
                 }else{
                       RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
                        rd.include(request,response);
+                      
+                      
+                       response.setContentType("text/html");
+                        PrintWriter out = response.getWriter();
+                        out.println("<HTML><BODY><p style=color:red> Please enter valid fields"
+                                +"</BODY></HTML>" );
+                       out.close();
                 }
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(loginController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            response.sendRedirect("home.jsp");
+            
     }
 }
 
