@@ -13,5 +13,8 @@
     </head>
     <body>
         You can now sell
+        <form action="uploadFile.jsp">
+    <input type="submit" value="post pictures" />
+</form>
     </body>
 </html>
