@@ -25,10 +25,10 @@ public class databaseConnection {
              Logger.getLogger(databaseConnection.class.getName()).log(Level.SEVERE, null, ex);
          }
         
-        String  url = "jdbc:mysql://localhost:3306/ecomers";
+        String  url = "jdbc:mysql://localhost:3306/ecommerce";
         
         try{
-            con = DriverManager.getConnection(url, "root", "");
+            con = DriverManager.getConnection(url, "ecommerce", "ecommerce");
             System.out.println("Database connection successful");
             
         }
