@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package dao;
 
 /**
  *
  * @author Athena
  */
 
-import Controller.registerBean;
-import Model.databaseConnection;
-import static Model.userdao.rs;
+import Model.registerBean;
+import Model.registerBean;
+import static dao.userdao.rs;
 import java.sql.*;
 public class registerdao {
     

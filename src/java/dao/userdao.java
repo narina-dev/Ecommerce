@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package dao;
 
-import Controller.loginBean;
-import Model.databaseConnection;
+import Model.loginBean;
+import dao.databaseConnection;
 import java.sql.*;
 
 public class userdao {

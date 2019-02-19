@@ -3,21 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package dao;
 
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class databaseConnection {
     
      static Connection con;
    
     
-    public static Connection getConnect() throws ClassNotFoundException, SQLException {
+    public static Connection getConnect() {
         
       
         
-        Class.forName("com.mysql.jdbc.Driver");
+         try {
+             Class.forName("com.mysql.jdbc.Driver");
+         } catch (ClassNotFoundException ex) {
+             Logger.getLogger(databaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+         }
         
         String  url = "jdbc:mysql://localhost:3306/ecomers";
         

@@ -1,7 +1,12 @@
-package servlets;
+package Controller;
 
+import Model.imageBean;
+import Model.imageBean;
+import dao.databaseConnection;
+import dao.imagedao;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,10 +24,17 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 //path give
 
 
+@WebServlet(name="Uploader", urlPatterns = {"/Uploader"})
 public class Uploader extends HttpServlet {
 @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String productName = request.getParameter("productName");
+        String productDescription = request.getParameter("productDescription");
+        String productPrice = request.getParameter("productPrice");
+        int price = Integer.parseInt(productPrice);
+        
         response.setContentType("text/html");
         boolean isMultiPart = ServletFileUpload.isMultipartContent(request);
         if (isMultiPart) {
@@ -42,9 +54,16 @@ public class Uploader extends HttpServlet {
                     } else {
                         //file specific
                         String path = getServletContext().getRealPath("/");
-                        //method to upload  
-                        if(FileUploader.processFile(path,item)){
+                        //method to upload 
+                        String imageName = FileUploader.processFile(path,item);
+                        Connection connection = databaseConnection.getConnect();
+                        imageBean imageBean = new imageBean(productName, productDescription, price, imageName);
+//                        imagedao(connection, imagedao);
+                        if(imageName != null){
+                            
+                            //insert to db
                         response.getWriter().println("file uploaded sucesfully");
+                        //imagen
                        // response.getWriter().println(request.getServletContext().getRealPath(path));
                         }
                         else response.getWriter().println("file uploading failed");
@@ -59,11 +78,7 @@ public class Uploader extends HttpServlet {
         }
     }
   
-  @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String imageName = request.getPathInfo().substring(1); // Returns "image name".
-
-        }
+  
     
     
 }

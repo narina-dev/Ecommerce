@@ -5,7 +5,8 @@
  */
 package Controller;
 
-import Model.userdao;
+import Model.loginBean;
+import dao.userdao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -52,7 +53,7 @@ public class loginController extends HttpServlet {
                       
                        response.setContentType("text/html");
                         PrintWriter out = response.getWriter();
-                        out.println("<HTML><BODY><p style=color:red> Please enter valid fields"
+                        out.println("<HTML><BODY><p style=color:red> The password and name you entered does not match"
                                 +"</BODY></HTML>" );
                        out.close();
                 }

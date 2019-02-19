@@ -5,7 +5,8 @@
  */
 package Controller;
 
-import Model.registerdao;
+import Model.registerBean;
+import dao.registerdao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
